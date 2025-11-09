@@ -10,14 +10,41 @@ function RepoCard({ repo }) {
     });
 
     return (
-        <div style={{ border: "1px solid #ccc", borderRadius: 8, padding: 10 }}>
-            <h3>
-                <p>Name of repository: {repo.name}</p>
-                <a href = {repo.html_url}>GitHub</a>
-                <p>Number of Forks: {repo.forks_count}</p>
-                <p>Number of Stargazers: {repo.stargazers_count}</p>
-                <p>Update at <time dateTime={repo.updated_at}>{formattedDate}</time></p>
+        <div
+            style={{
+                border: "1px solid #e1e4e8",
+                borderRadius: 12,
+                padding: "20px",
+                marginBottom: "16px",
+                backgroundColor: "#f9f9f9",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+            }}
+        >
+            <h3 style={{ color: "#000000", marginBottom: 10 }}>
+                <strong>Repository:</strong> {repo.name}
             </h3>
+            <a
+                href={repo.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                    color: "#0969da",
+                    textDecoration: "none",
+                    fontWeight: "500",
+                }}
+            >
+                View on GitHub
+            </a>
+            <p style={{ marginTop: 10 }}>
+                <strong>Forks:</strong> {repo.forks_count}
+            </p>
+            <p>
+                <strong>Stars:</strong> {repo.stargazers_count}
+            </p>
+            <p>
+                <strong>Last update:</strong>{" "}
+                <time dateTime={repo.updated_at}>{formattedDate}</time>
+            </p>
         </div>
     );
 }
